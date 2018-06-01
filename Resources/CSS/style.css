@@ -38,10 +38,15 @@ a {
   color: deepskyblue;
   font-weight: 700;
   text-decoration: none;
+  transition: text-decoration 0.1s ease;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 /* header */
 
-header {
+#desktop-nav {
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
@@ -49,37 +54,59 @@ header {
   align-items: center;
 }
 
-header img {
+#desktop-nav img {
   height: 2.5rem;
   width: auto;
   padding: 1.5rem;
   transition: opacity 0.25s ease-in;
 }
 
-header img:hover {
+#desktop-nav img:hover {
   opacity: 0.5;
 }
 
-header nav ul {
+#desktop-nav nav ul {
   display: inline-flex;
   list-style: none;
 }
 
-header nav ul li {
+#desktop-nav nav ul li {
   height: 100%;
   padding: 2.5rem 1.5rem;
   transition: background-color 0.25s ease-in;
 }
 
-header nav ul li:hover {
+#desktop-nav nav ul li:hover {
   color: white;
   background-color: deepskyblue;
+}
+
+#mobile-nav {
+  display: none;
+}
+
+@media only screen and (max-width: 500px) {
+
+  #desktop-nav {
+    display: none;
+  }
+
+  #mobile-nav {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #mobile-nav img {
+    height: 2rem;
+    padding: 1rem 2rem;
+  }
+
 }
 
 /* jumbotron */
 
 .jumbotron {
-  background-color: gainsboro;
+  background-color: #dddddd;
   width: 100%;
   height: auto;
   display: flex;
@@ -89,7 +116,7 @@ header nav ul li:hover {
 .jumbotron img {
   width: 60%;
   height: 60%;
-  padding: 2.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .details {
@@ -103,20 +130,54 @@ header nav ul li:hover {
 .button {
   padding: 1.5rem;
   margin-top: 1rem;
-  width: 20rem;
+  width: 18rem;
   background-color: #4b4b4b;
   font-family: "Open Sans", "Helvetica", Sans-serif;
   font-weight: 400;
   font-size: 1rem;
   color: white;
+  border-radius: 0.5rem;
   display: flex;
   align-content: center;
   justify-content: center;
+  transition: background-color 0.25s ease-in;
 }
 
 .button:hover {
   background-color: deepskyblue;
   box-shadow: 10px 10px 10px lightgray;
+}
+
+@media only screen and (max-width: 500px) {
+
+  .jumbotron {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .jumbotron img {
+    width: 100%;
+    height: 100%;
+  }
+
+  h1 {
+    font-size: 1.5rem
+    padding: 2rem 0;
+    line-height: 1.1;
+  }
+
+  .details {
+    width: 90%;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0.75rem;
+  }
+
+  .button {
+    width: 90%;
+    margin-bottom: 1.5rem;
+  }
+
 }
 
 /* --- information --- */
@@ -158,16 +219,15 @@ header nav ul li:hover {
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 1rem;
-  transition: background-color 0.5s ease;
 }
 
-.info-bite:hover {
-  opacity: 0.8;
-}
-
-.info-bite img {
+.desktop-pic {
   width: 35%;
   height: 35%;
+}
+
+.mobile-pic {
+  display: none;
 }
 
 .bite-details {
@@ -181,6 +241,32 @@ header nav ul li:hover {
   margin-top: 1rem;
   color: #4b4b4b;
   font-size: 0.75rem;
+}
+
+@media only screen and (max-width: 500px) {
+
+  .info-feature {
+    display: none;
+  }
+
+  .info-grid {
+    width: 100%;
+  }
+
+  .info-bite {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .desktop-pic {
+    display: none;
+  }
+
+  .mobile-pic {
+    display: flex;
+    width: 100%;
+  }
+
 }
 
 /* --- courses --- */
@@ -219,6 +305,59 @@ header nav ul li:hover {
 
 .course-details {
   padding: 1.5rem;
+}
+
+.course-details h3 {
+  transition: color 0.25s ease-in;
+}
+
+.course-details h3:hover {
+  color: deepskyblue;
+}
+
+@media only screen and (max-width: 500px) {
+
+  .courses {
+    background-color: white;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid gainsboro;
+  }
+
+  .courses h2 {
+    margin-bottom: 1rem;
+  }
+
+  .courses-grid {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .course {
+    width: 90%;
+    padding: 0;
+    margin: 0.5rem 0;
+  }
+
+  .course img {
+    display: none;
+  }
+
+  .course-details {
+    width: 90%;
+    padding: 0;
+    background-color: gainsboro;
+    padding: 1rem 8rem;
+    margin: 0;
+  }
+
+  .course-details p {
+    display: none;
+  }
+
 }
 
 /* --- thesis --- */
@@ -281,6 +420,34 @@ header nav ul li:hover {
   height: 35%;
 }
 
+@media only screen and (max-width: 500px) {
+
+.ugh {
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+}
+
+.thesis-grid {
+  display: none;
+}
+
+.thesis-feature {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.thesis-feature h2,p {
+  display: none;
+}
+
+.thesis-feature video {
+  width: 100%;
+}
+
+}
+
 /* bite-details rules in information section */
 
 /* ---- footer --- */
@@ -304,4 +471,34 @@ footer ul {
 
 footer ul li {
   padding: 0 1.5rem;
+}
+
+/* --- media queries --- */
+
+@media only screen and (max-width : 320px) {
+
+
+
+
+  .jumbotron {
+    background-color: gainsboro;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .jumbotron img {
+    width: 60%;
+    height: 60%;
+    padding: 2.5rem;
+  }
+
+
+
+
+
+
+
+
 }
